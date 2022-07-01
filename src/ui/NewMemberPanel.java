@@ -53,18 +53,18 @@ public class NewMemberPanel {
     private void defineTopPanel() {
         JLabel label = new JLabel("Add New Member");
         Util.adjustLabelFont(label, Util.DARK_BLUE, true);
-        topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         topPanel.add(label);
     }
 
     private void defineMiddlePanel() {
         middlePanel = new JPanel();
         BorderLayout bl = new BorderLayout();
-        bl.setVgap(30);
+        bl.setVgap(15);
         middlePanel.setLayout(bl);
 
         innerPanel = new JPanel();
-        FlowLayout fl = new FlowLayout(FlowLayout.CENTER, 25, 25);
+        FlowLayout fl = new FlowLayout(FlowLayout.CENTER, 10, 10);
         innerPanel.setLayout(fl);
 
         JPanel leftPanel = new JPanel();
@@ -91,19 +91,19 @@ public class NewMemberPanel {
         cellField = new JTextField(10);
 
         leftPanel.add(idLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(firstNameLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(lastNameLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(streetLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(cityLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(stateLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(zipLabel);
-        leftPanel.add(Box.createRigidArea(new Dimension(0,12)));
+        leftPanel.add(Box.createRigidArea(new Dimension(0,18)));
         leftPanel.add(cellLabel);
 
         rightPanel.add(idField);
