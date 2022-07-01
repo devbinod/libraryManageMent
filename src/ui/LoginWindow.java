@@ -206,8 +206,8 @@ public class LoginWindow extends JFrame implements LibWindow {
 				try {
 					String pass = password.getText();
 					password.setText("");
-//					ci.login(username.getText(), pass);
-					auth.login("103", "111");
+					auth.login(username.getText(), pass);
+//					auth.login("103", "111");
 				} catch (LoginException e) {
 					messageArea.setText("Username or password is invalid.");
 					System.out.println(e.getMessage());
