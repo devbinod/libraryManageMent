@@ -1,6 +1,7 @@
 package ui;
 
 import controller.BookController;
+import model.Book;
 import services.dao.IBook;
 import exceptions.LibrarySystemException;
 import model.Address;
@@ -140,7 +141,8 @@ public class AddBookPanel {
                 Address address = new Address("-", "-", "-", "-");
                 Author author = new Author(fName, lName, phoneNumber, address, "-");
                 try {
-                    iBook.addBook(isbn, title, Integer.parseInt(maxCheckoutLen), List.of(author));
+                    Book book = new Book(isbn,title,Integer.parseInt(maxCheckoutLen), List.of(author));
+                    iBook.addBook(book);
                     bookISBN.setText("");
                     titleField.setText("");
                     authLastNameField.setText("");

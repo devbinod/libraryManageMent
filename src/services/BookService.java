@@ -28,15 +28,28 @@ public class BookService implements IBook {
 //
 //    }
 
-    public void addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) throws LibrarySystemException {
-        DataAccess da = new DataAccessFacade();
+//    public void addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) throws LibrarySystemException {
+//        DataAccess da = new DataAccessFacade();
+//        HashMap<String, Book> books = da.readBooksMap();
+//        Book b = books.get(isbn);
+//        if (b != null) {
+//            throw new LibrarySystemException("There is already another book with same ISBN: " + isbn);
+//        }
+//        b = new Book(isbn, title, maxCheckoutLength, authors);
+//        da.saveNewBook(b);
+//    }
+
+
+    @Override
+    public void addBook(Book book) throws LibrarySystemException {
+                DataAccess da = new DataAccessFacade();
         HashMap<String, Book> books = da.readBooksMap();
-        Book b = books.get(isbn);
+        Book b = books.get(book.getIsbn());
         if (b != null) {
-            throw new LibrarySystemException("There is already another book with same ISBN: " + isbn);
+            throw new LibrarySystemException("There is already another book with same ISBN: " + book.getIsbn());
         }
-        b = new Book(isbn, title, maxCheckoutLength, authors);
-        da.saveNewBook(b);
+//        b = new Book(isbn, title, maxCheckoutLength, authors);
+        da.saveNewBook(book);
     }
 
     @Override

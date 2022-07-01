@@ -1,6 +1,7 @@
 package controller;
 
 import exceptions.LibrarySystemException;
+import model.Book;
 import services.dao.IBook;
 import model.Author;
 import services.BookService;
@@ -17,9 +18,15 @@ public class BookController implements IBook {
     }
 
 
+//    @Override
+//    public void addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) throws LibrarySystemException {
+//        iBook.addBook(isbn,title,maxCheckoutLength,authors);
+//    }
+
+
     @Override
-    public void addBook(String isbn, String title, int maxCheckoutLength, List<Author> authors) throws LibrarySystemException {
-        iBook.addBook(isbn,title,maxCheckoutLength,authors);
+    public void addBook(Book book) throws LibrarySystemException {
+        iBook.addBook(book);
     }
 
     @Override
