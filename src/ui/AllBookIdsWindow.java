@@ -124,7 +124,7 @@ public class AllBookIdsWindow {
 			table.getColumnModel().getColumn(0).setPreferredWidth(50);
 			table.getColumnModel().getColumn(1).setPreferredWidth(250);
 			table.getColumnModel().getColumn(2).setPreferredWidth(250);
-			table.getColumnModel().getColumn(3).setPreferredWidth(50);
+			table.getColumnModel().getColumn(3).setPreferredWidth(150);
 
 
 			table.setMinimumSize(new Dimension(500, 70));
