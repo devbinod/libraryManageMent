@@ -45,7 +45,7 @@ public class CheckoutRecordPanel {
         topPanel = new JPanel();
         JLabel label = new JLabel("View Member Checkout Record");
         Util.adjustLabelFont(label, Util.DARK_BLUE, true);
-        topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         topPanel.add(label);
     }
 
@@ -94,8 +94,8 @@ public class CheckoutRecordPanel {
                                     return false;
                                 }
                             };
-                            tableModel.addColumn("Member Id");
-                            tableModel.addColumn("Full name");
+                            tableModel.addColumn("MemberId");
+                            tableModel.addColumn("Name");
                             tableModel.addColumn("Book ISBN");
                             tableModel.addColumn("Book Title");
                             tableModel.addColumn("Copy Number");
@@ -105,6 +105,8 @@ public class CheckoutRecordPanel {
 
 
                             table = new JTable(tableModel);
+                            table.setMinimumSize(new Dimension(500, 150));
+
 
                             for (String[] rec : records) {
                                 tableModel.addRow(rec);
@@ -117,7 +119,14 @@ public class CheckoutRecordPanel {
                             tableModel.addRow(new String[]{});
                             tableModel.addRow(new String[]{});
 
-                            table.setMinimumSize(new Dimension(500, 70));
+                            table.getColumnModel().getColumn(0).setMinWidth(40);
+                            table.getColumnModel().getColumn(1).setMinWidth(50);
+                            table.getColumnModel().getColumn(2).setMinWidth(50);
+                            table.getColumnModel().getColumn(3).setMinWidth(50);
+                            table.getColumnModel().getColumn(4).setMinWidth(50);
+                            table.getColumnModel().getColumn(5).setMinWidth(100);
+                            table.getColumnModel().getColumn(6).setMinWidth(100);
+//                            table.setMinimumSize(new Dimension(500, 70));
                             table.setPreferredScrollableViewportSize(table.getPreferredSize());
                             table.setFillsViewportHeight(true);
                             scrollPane = new JScrollPane(table);

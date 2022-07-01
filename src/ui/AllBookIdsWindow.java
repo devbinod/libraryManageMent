@@ -42,7 +42,7 @@ public class AllBookIdsWindow {
 	public void init() {
 		if(!isInitialized) {
 			mainPanel = new JPanel();
-//			mainPanel.setLayout(new BorderLayout());
+			mainPanel.setLayout(new BorderLayout());
 			defineTopPanel();
 			defineMiddlePanel();
 			defineLowerPanel();
@@ -50,6 +50,8 @@ public class AllBookIdsWindow {
 			mainPanel.add(topPanel, BorderLayout.NORTH);
 			mainPanel.add(middlePanel, BorderLayout.CENTER);
 			mainPanel.add(lowerPanel, BorderLayout.SOUTH);
+			mainPanel.setBorder(BorderFactory.createEmptyBorder(20,0,0,0));
+
 			isInitialized = true;
 			listBookIDS();
 		}
@@ -58,7 +60,6 @@ public class AllBookIdsWindow {
 	public void defineTopPanel() {
 		topPanel = new JPanel();
 		JLabel AllIDsLabel = new JLabel("All Book List");
-
 		Util.adjustLabelFont(AllIDsLabel, Util.DARK_BLUE, true);
 		topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		topPanel.add(AllIDsLabel);
@@ -76,7 +77,7 @@ public class AllBookIdsWindow {
 		JButton backToMainButn = new JButton("<= Back to Main");
 		backToMainButn.addActionListener(new BackToMainListener());
 		lowerPanel = new JPanel();
-		lowerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));;
+		lowerPanel.setLayout(new FlowLayout(FlowLayout.LEFT));;
 //		lowerPanel.add(backToMainButn);
 	}
 	
@@ -128,7 +129,7 @@ public class AllBookIdsWindow {
 			table.setFillsViewportHeight(true);
 			scrollPane = new JScrollPane(table);
 
-			lowerPanel.add(scrollPane);
+			middlePanel.add(scrollPane);
 			tableDataSet = true;
 		}else {
 			DefaultTableModel tableModel = (DefaultTableModel) table.getModel();

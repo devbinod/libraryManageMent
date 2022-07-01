@@ -54,7 +54,7 @@ public class AddBookPanel {
         topPanel = new JPanel();
         JLabel AddBookLabel = new JLabel("Add Book Title");
         Util.adjustLabelFont(AddBookLabel, Util.DARK_BLUE, true);
-        topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         topPanel.add(AddBookLabel);
     }
 

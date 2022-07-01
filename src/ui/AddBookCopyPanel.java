@@ -37,7 +37,7 @@ public class AddBookCopyPanel {
         topPanel = new JPanel();
         JLabel AddBookLabel = new JLabel("Add Book Copy");
         Util.adjustLabelFont(AddBookLabel, Util.DARK_BLUE, true);
-        topPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         topPanel.add(AddBookLabel);
     }
 
