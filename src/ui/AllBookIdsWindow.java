@@ -113,6 +113,7 @@ public class AllBookIdsWindow {
 			tableModel.addColumn("ISIN ");
 			tableModel.addColumn("Book Name");
 			tableModel.addColumn("No Of Copies");
+			tableModel.addColumn("Available Book");
 
 
 			for (String[] rec : bookList) {
@@ -122,9 +123,10 @@ public class AllBookIdsWindow {
 
 			table = new JTable(tableModel);
 			table.getColumnModel().getColumn(0).setPreferredWidth(50);
-			table.getColumnModel().getColumn(1).setPreferredWidth(250);
-			table.getColumnModel().getColumn(2).setPreferredWidth(250);
+			table.getColumnModel().getColumn(1).setPreferredWidth(150);
+			table.getColumnModel().getColumn(2).setPreferredWidth(200);
 			table.getColumnModel().getColumn(3).setPreferredWidth(150);
+			table.getColumnModel().getColumn(4).setPreferredWidth(150);
 
 
 			table.setMinimumSize(new Dimension(500, 70));

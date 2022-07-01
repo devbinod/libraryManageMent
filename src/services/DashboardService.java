@@ -1,8 +1,12 @@
 package services;
 
+import model.Book;
 import services.dao.IDashboard;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DashboardService implements IDashboard {
 
@@ -11,11 +15,18 @@ public class DashboardService implements IDashboard {
         DataAccess dataAccess = new DataAccessFacade();
         return dataAccess.readUserMap().size();
     }
+
     @Override
     public int getBookCount() {
         DataAccess dataAccess = new DataAccessFacade();
-        return dataAccess.readBooksMap().size();
 
+        int count = 0;
+        HashMap<String, Book> bookHashMap = dataAccess.readBooksMap();
+        for (Map.Entry<String, Book> bookEntry : bookHashMap.entrySet()) {
+            count++;
+            count += bookEntry.getValue().getNumCopies();
+        }
+        return count;
     }
 
 }

@@ -9,10 +9,7 @@ import model.Author;
 import model.Book;
 import model.CheckoutFactory;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BookService implements IBook {
     public void addBookCopy(String isbn) throws LibrarySystemException {
@@ -49,11 +46,14 @@ public class BookService implements IBook {
         List<String[]> columns = new ArrayList<>();
         int count = 0;
         for (Map.Entry<String, Book> entry : da.readBooksMap().entrySet()) {
+
             String[] row = new String[]{
                     String.valueOf(++count),
                     entry.getValue().getIsbn(),
                     entry.getValue().getTitle(),
-                    String.valueOf(entry.getValue().getNumCopies())
+                    String.valueOf(entry.getValue().getNumCopies()),
+                    String.valueOf(Arrays.stream(entry.getValue().getCopies()).filter(bookCopy -> bookCopy.isAvailable()).count())
+
             };
             columns.add(row);
 
