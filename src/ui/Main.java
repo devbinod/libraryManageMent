@@ -13,7 +13,7 @@ public class Main {
 	public static void main(String[] args) {
 	      EventQueue.invokeLater(() -> 
 	         {
-				 LibrarySystem.INSTANCE.setTitle("Libtech Library Application");
+				 LibrarySystem.INSTANCE.setTitle("BookTech Library Management");
 				 LibrarySystem.INSTANCE.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 				 LibrarySystem.INSTANCE.init();
