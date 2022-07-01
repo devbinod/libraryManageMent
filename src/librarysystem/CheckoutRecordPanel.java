@@ -30,6 +30,7 @@ public class CheckoutRecordPanel {
 
     public CheckoutRecordPanel() {
         mainPanel = new JPanel();
+        System.out.println("called....");
         defineTopPanel();
         defineMiddlePanel();
         defineLowerPanel();

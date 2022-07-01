@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.*;
 
 import business.ControllerInterface;
+import business.Dashboard;
 import business.SystemController;
 import dataaccess.Auth;
 
@@ -33,7 +34,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 	};
 
 	private static Class[] librarianPages = {CheckoutBookPanel.class, AllBookIdsWindow.class, CheckoutRecordPanel.class};
-	private static Class[] adminPages = {NewMemberPanel.class, AddBookPanel.class, AllBookIdsWindow.class, AddBookCopyPanel.class};
+	private static Class[] adminPages = {DashboardPanel.class,NewMemberPanel.class, AddBookPanel.class, AllBookIdsWindow.class, AddBookCopyPanel.class};
 
 	public static void hideAllWindows() {
 		
@@ -42,8 +43,9 @@ public class LibrarySystem extends JFrame implements LibWindow {
 			
 		}
 	}
-    
-    
+
+
+
     private LibrarySystem() {}
     
     public void init() {
@@ -103,6 +105,11 @@ public class LibrarySystem extends JFrame implements LibWindow {
 			}
 		}
 
+		if(authList.contains(DashboardPanel.class)){
+
+			tabbedPane.addTab("Dashboard", DashboardPanel.getInstance().getMainPanel());
+			tabTitles.add("Dashboard");
+		}
 		if(authList.contains(AllMemberIdsWindow.class)){
 			tabbedPane.addTab("All Members", AllMemberIdsWindow.getInstance().getMainPanel());
 			tabTitles.add("All Members");
@@ -147,10 +154,14 @@ public class LibrarySystem extends JFrame implements LibWindow {
 					if (tabbedPane.getTitleAt(indexSelected).equals("All Books")) {
 						AllBookIdsWindow.getInstance().listBookIDS();
 					}
+					if (tabbedPane.getTitleAt(indexSelected).equals("Dashboard")) {
+						DashboardPanel.getInstance().loadUserCount();
+					}
 				}
 			});
 		}
 	}
+
 
     private void createMenus() {
     	menuBar = new JMenuBar();

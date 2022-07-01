@@ -1,17 +1,13 @@
 package librarysystem;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.TextArea;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import business.ControllerInterface;
 import business.SystemController;
@@ -28,7 +24,9 @@ public class AllBookIdsWindow {
 	private JPanel middlePanel;
 	private JPanel lowerPanel;
 	private TextArea textArea;
-	
+
+	private JTable table;
+	private boolean tableDataSet;
 
 	//Singleton class
 	private AllBookIdsWindow() {}
@@ -49,18 +47,19 @@ public class AllBookIdsWindow {
 			defineTopPanel();
 			defineMiddlePanel();
 			defineLowerPanel();
+
 			mainPanel.add(topPanel, BorderLayout.NORTH);
 			mainPanel.add(middlePanel, BorderLayout.CENTER);
 			mainPanel.add(lowerPanel, BorderLayout.SOUTH);
-
-			listBookIDS();
 			isInitialized = true;
+			listBookIDS();
 		}
 	}
 	
 	public void defineTopPanel() {
 		topPanel = new JPanel();
-		JLabel AllIDsLabel = new JLabel("All Book IDs");
+		JLabel AllIDsLabel = new JLabel("All Book List");
+
 		Util.adjustLabelFont(AllIDsLabel, Util.DARK_BLUE, true);
 		topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		topPanel.add(AllIDsLabel);
@@ -68,11 +67,12 @@ public class AllBookIdsWindow {
 	
 	public void defineMiddlePanel() {
 		middlePanel = new JPanel();
-		FlowLayout fl = new FlowLayout(FlowLayout.CENTER, 25, 25);
+		FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
 		middlePanel.setLayout(fl);
-		textArea = new TextArea(8, 20);
+
+//		textArea = new TextArea(8, 20);
 		//populateTextArea();
-		middlePanel.add(textArea);
+//		middlePanel.add(textArea);
 		
 	}
 	
@@ -81,7 +81,7 @@ public class AllBookIdsWindow {
 		JButton backToMainButn = new JButton("<= Back to Main");
 		backToMainButn.addActionListener(new BackToMainListener());
 		lowerPanel = new JPanel();
-		lowerPanel.setLayout(new FlowLayout(FlowLayout.LEFT));;
+		lowerPanel.setLayout(new FlowLayout(FlowLayout.CENTER));;
 //		lowerPanel.add(backToMainButn);
 	}
 	
@@ -94,21 +94,64 @@ public class AllBookIdsWindow {
 		}
 	}
 	
-	public void setData(String data) {
-		textArea.setText(data);
-	}
-	
-	public void listBookIDS() {
-		List<String> ids = ci.allBookIds();
-		Collections.sort(ids);
-                               System.out.println("=====ddd"+ids);
 
-		StringBuilder sb = new StringBuilder();
-		for(String s: ids) {
-			sb.append(s).append("\n");
+	public void listBookIDS() {
+		List<String[]> bookList = ci.getAllBookList();
+
+		if (!tableDataSet) {
+			JScrollPane scrollPane;
+
+			DefaultTableModel tableModel = new DefaultTableModel(){
+				@Override
+				public boolean isCellEditable(int row, int column) {
+					//all cells false
+					return false;
+				}
+
+
+			};
+			tableModel.addColumn("S.N");
+			tableModel.addColumn("ISIN ");
+			tableModel.addColumn("Book Name");
+			tableModel.addColumn("No Of Copies");
+
+
+			for (String[] rec : bookList) {
+				tableModel.addRow(rec);
+			}
+			tableModel.addRow(new String[]{});
+
+			table = new JTable(tableModel);
+			table.getColumnModel().getColumn(0).setPreferredWidth(50);
+			table.getColumnModel().getColumn(1).setPreferredWidth(250);
+			table.getColumnModel().getColumn(2).setPreferredWidth(250);
+			table.getColumnModel().getColumn(3).setPreferredWidth(50);
+
+
+			table.setMinimumSize(new Dimension(500, 70));
+			table.setPreferredScrollableViewportSize(table.getPreferredSize());
+			table.setFillsViewportHeight(true);
+			scrollPane = new JScrollPane(table);
+
+			lowerPanel.add(scrollPane);
+			tableDataSet = true;
+		}else {
+			DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+			tableModel.getDataVector().removeAllElements();
+			tableModel.setRowCount(0);
+
+
+			for (String[] rec : bookList) {
+				tableModel.addRow(rec);
+			}
+			table.setModel(tableModel);
+
 		}
-		setData(sb.toString());
+
+
 	}
+
+
 
 	public boolean isInitialized() {
 		// TODO Auto-generated method stub

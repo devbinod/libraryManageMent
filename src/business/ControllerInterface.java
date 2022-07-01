@@ -9,10 +9,14 @@ import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 
 public interface ControllerInterface {
+	public Dashboard getDashboardCount();
+
 	public void login(String id, String password) throws LoginException;
 	public void logout();
 	public List<String> allMemberIds();
 	public List<String> allBookIds();
+
+	public List<String[]> getAllBookList();
 	public void checkoutBook(String memberID, String isbn) throws LibrarySystemException;
 	public List<String[]> getCheckoutEntries(String memberID) throws LibrarySystemException;
 	public void addBookCopy(String isbn) throws LibrarySystemException;
