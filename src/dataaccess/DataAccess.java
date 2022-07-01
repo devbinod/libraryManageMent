@@ -2,9 +2,8 @@ package dataaccess;
 
 import java.util.HashMap;
 
-import business.Book;
-import business.LibraryMember;
-import dataaccess.DataAccessFacade.StorageType;
+import model.Book;
+import model.LibraryMember;
 
 public interface DataAccess { 
 	public HashMap<String,Book> readBooksMap();
