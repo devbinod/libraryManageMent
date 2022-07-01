@@ -83,7 +83,7 @@ public class LibrarySystem extends JFrame implements LibWindow {
 		mainPanel.add(new JLabel(image));
     }
 
-	public void updateTabs() {
+	private void updateTabs() {
 		if(tabbedPane == null){
 			tabbedPane = new JTabbedPane();
 		}
