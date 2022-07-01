@@ -1,8 +1,6 @@
 package ui;
 
-import java.awt.Component;
-import java.awt.EventQueue;
-import java.awt.Toolkit;
+import java.awt.*;
 
 import javax.swing.JFrame;
 
@@ -29,6 +27,7 @@ public class Main {
 			int width = toolkit.getScreenSize().width;
 			int frameHeight = f.getSize().height;
 			int frameWidth = f.getSize().width;
-			f.setLocation(((width - frameWidth) / 2), (height - frameHeight) / 3);
+		   f.setMinimumSize(new Dimension(width/2,height/2));
+		   f.setLocation(((width - frameWidth) / 2), (height - frameHeight) / 3);
 		}
 }

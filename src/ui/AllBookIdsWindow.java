@@ -42,7 +42,7 @@ public class AllBookIdsWindow {
 	public void init() {
 		if(!isInitialized) {
 			mainPanel = new JPanel();
-			mainPanel.setLayout(new BorderLayout());
+//			mainPanel.setLayout(new BorderLayout());
 			defineTopPanel();
 			defineMiddlePanel();
 			defineLowerPanel();
@@ -69,10 +69,6 @@ public class AllBookIdsWindow {
 		FlowLayout fl = new FlowLayout(FlowLayout.CENTER);
 		middlePanel.setLayout(fl);
 
-//		textArea = new TextArea(8, 20);
-		//populateTextArea();
-//		middlePanel.add(textArea);
-		
 	}
 	
 	public void defineLowerPanel() {
@@ -127,9 +123,7 @@ public class AllBookIdsWindow {
 			table.getColumnModel().getColumn(2).setPreferredWidth(200);
 			table.getColumnModel().getColumn(3).setPreferredWidth(150);
 			table.getColumnModel().getColumn(4).setPreferredWidth(150);
-
-
-			table.setMinimumSize(new Dimension(500, 70));
+			table.setMinimumSize(new Dimension(500, 150));
 			table.setPreferredScrollableViewportSize(table.getPreferredSize());
 			table.setFillsViewportHeight(true);
 			scrollPane = new JScrollPane(table);
