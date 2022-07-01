@@ -213,7 +213,7 @@ public class LoginWindow extends JFrame implements LibWindow {
 					System.out.println(e.getMessage());
 					return;
 				}
-//				JOptionPane.showMessageDialog(this,"Successful Login\nWelcome back "+username.getText());
+				JOptionPane.showMessageDialog(this,"Successful Login\nWelcome back "+username.getText());
 
 				LibrarySystem.hideAllWindows();
 				LibrarySystem.INSTANCE.setVisible(true);
