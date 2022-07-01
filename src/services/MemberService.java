@@ -2,7 +2,7 @@ package services;
 
 import model.LibraryMember;
 import exceptions.LibrarySystemException;
-import dao.IMember;
+import services.dao.IMember;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import model.Address;

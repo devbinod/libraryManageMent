@@ -1,7 +1,7 @@
 package ui;
 
 import controller.DashboardController;
-import dao.IDashboard;
+import services.dao.IDashboard;
 
 import javax.swing.*;
 import java.awt.*;

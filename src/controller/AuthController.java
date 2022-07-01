@@ -1,7 +1,7 @@
 package controller;
 
 import exceptions.LoginException;
-import dao.IAuth;
+import services.dao.IAuth;
 import dataaccess.Auth;
 import services.AuthService;
 

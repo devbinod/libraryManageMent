@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import controller.BookController;
-import dao.IBook;
+import services.dao.IBook;
 
 
 public class AllBookIdsWindow {

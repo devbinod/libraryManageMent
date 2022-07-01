@@ -3,8 +3,8 @@ package ui;
 import exceptions.LibrarySystemException;
 import controller.BookController;
 import controller.MemberController;
-import dao.IBook;
-import dao.IMember;
+import services.dao.IBook;
+import services.dao.IMember;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package dao;
+package services.dao;
 
 public interface IDashboard {
     public int getUserCount();

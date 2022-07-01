@@ -2,7 +2,7 @@ package ui;
 
 import exceptions.LibrarySystemException;
 import controller.BookController;
-import dao.IBook;
+import services.dao.IBook;
 
 import javax.swing.*;
 import java.awt.*;

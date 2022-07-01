@@ -1,6 +1,6 @@
 package controller;
 
-import dao.IDashboard;
+import services.dao.IDashboard;
 import services.DashboardService;
 
 public class DashboardController implements IDashboard {

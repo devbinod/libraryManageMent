@@ -1,7 +1,7 @@
 package services;
 
 import exceptions.LoginException;
-import dao.IAuth;
+import services.dao.IAuth;
 import dataaccess.Auth;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;

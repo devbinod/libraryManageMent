@@ -1,7 +1,7 @@
 package controller;
 
 import exceptions.LibrarySystemException;
-import dao.IBook;
+import services.dao.IBook;
 import model.Author;
 import services.BookService;
 

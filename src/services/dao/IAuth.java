@@ -1,4 +1,4 @@
-package dao;
+package services.dao;
 
 import exceptions.LoginException;
 import dataaccess.Auth;

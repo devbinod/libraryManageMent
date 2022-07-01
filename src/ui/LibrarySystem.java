@@ -10,7 +10,7 @@ import java.util.List;
 import javax.swing.*;
 
 import controller.AuthController;
-import dao.IAuth;
+import services.dao.IAuth;
 import dataaccess.Auth;
 
 

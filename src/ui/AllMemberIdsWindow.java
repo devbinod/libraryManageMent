@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.MemberController;
-import dao.IMember;
+import services.dao.IMember;
 
 
 public class AllMemberIdsWindow {

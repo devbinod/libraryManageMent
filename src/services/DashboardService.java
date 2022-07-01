@@ -1,6 +1,6 @@
 package services;
 
-import dao.IDashboard;
+import services.dao.IDashboard;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 

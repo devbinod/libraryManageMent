@@ -1,7 +1,7 @@
 package controller;
 
 import exceptions.LibrarySystemException;
-import dao.IMember;
+import services.dao.IMember;
 import services.MemberService;
 
 import java.util.List;

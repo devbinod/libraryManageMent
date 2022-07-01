@@ -1,7 +1,7 @@
 package ui;
 
 import controller.BookController;
-import dao.IBook;
+import services.dao.IBook;
 import exceptions.LibrarySystemException;
 import model.Address;
 import model.Author;

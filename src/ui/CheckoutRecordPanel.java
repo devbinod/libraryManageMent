@@ -2,7 +2,7 @@ package ui;
 
 import exceptions.LibrarySystemException;
 import controller.MemberController;
-import dao.IMember;
+import services.dao.IMember;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

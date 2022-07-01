@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import exceptions.LoginException;
 import controller.AuthController;
-import dao.IAuth;
+import services.dao.IAuth;
 import util.LoginUtils;
 
 
