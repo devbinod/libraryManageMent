@@ -1,11 +1,28 @@
 package ui;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-import exceptions.LoginException;
 import controller.AuthController;
+import exceptions.LoginException;
 import services.dao.IAuth;
 import util.LoginUtils;
 
@@ -52,7 +69,7 @@ public class LoginWindow extends JFrame implements LibWindow {
     
     public void init() {
 		if(!isInitialized){
-			setTitle("Login");
+			setTitle("BookTech Library Management");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     		mainPanel = new JPanel();
     		defineUpperHalf();
@@ -68,7 +85,7 @@ public class LoginWindow extends JFrame implements LibWindow {
     		getContentPane().add(mainPanel);
     		isInitialized(true);
     		pack();
-    		//setSize(660, 500);
+    		setSize(350, 220);
 
 		}
     }
